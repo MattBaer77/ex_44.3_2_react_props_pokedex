@@ -2,16 +2,15 @@
 
 import React from 'react';
 import Pokecard from './Pokecard'
+import './Pokedex.css';
 
 const Pokedex = ({pokemon}) => {
 
-  console.log(pokemon)
-
   return (
 
-    <div>
+    <div className='Pokedex'>
 
-      <h1>
+      <h1 className='Pokedex-title'>
         Pokedex
       </h1>
 
@@ -19,7 +18,7 @@ const Pokedex = ({pokemon}) => {
 
         {pokemon.map(p => (
 
-          <Pokecard name={p.name} img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`} type={p.type} exp={p.base_experience} />
+          <Pokecard key={p.id} className="Pokedex-cards" name={p.name} img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`} type={p.type} exp={p.base_experience} />
 
         ))}
 
@@ -41,7 +40,5 @@ Pokedex.defaultProps = {pokemon: [
   {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
   {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
 ]}
-
-console.log(Pokedex.defaultProps)
 
 export default Pokedex;
